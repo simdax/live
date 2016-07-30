@@ -1,0 +1,5 @@
+(
+summary: "algorithmic generation of music"
+dependencies: ["https://github.com/simdax/patternsSC","https://github.com/simdax/ext","TabbedView2"];
+
+)
