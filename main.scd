@@ -7,6 +7,7 @@
 Window.closeAll;
 //Pdef.removeAll;
 
+Zyn(1);
 "init.scd".loadRelative;
 
 //"patterns/rand.scd".loadRelative;
