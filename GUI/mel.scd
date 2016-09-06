@@ -1,3 +1,4 @@
+
 (
 
 var w;
@@ -141,11 +142,7 @@ Pdef(\mel,
 				)
 			)
 		)
-	// <>
-	// (type:\midi, midiout:MIDIOut(1))
 );
-
-//PdefGui(Pdef(\mel));
 
 
 )

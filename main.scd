@@ -4,28 +4,42 @@
 
 (
 
+~midiPort=1;
 Window.closeAll;
 //Pdef.removeAll;
 
-Zyn(1);
+Zyn(~midiPort);
 "init.scd".loadRelative;
 
 //"patterns/rand.scd".loadRelative;
-Pdef(\master, Pbind(
-	\degree, Pkey(\degree)
-	//.integrate,
-	//\degree (Pdefn(\_pf) <> (tps:8,pat:Pkey(\degree).trace)),
-	//	\octave, 5 -  (Pkey(\degree).div(7)),
-	//	\mtranspose, Pstep(Pseq([0,2], inf), 2),
-)
-);
+
 
 Pdef(\main, (
 	Pdef(\repe)
 	<>
 	Pdef(\harmo)
 	<>
-	Pdef(\master)
+
+	Pdef(\master, Pbind(
+		\degree, Pkey(\degree),
+		\dur, p{ arg in;
+			var accents=Pstep(Pseq([4, 2], inf), 4).asStream;
+			loop{
+				var temps=in.beat % 4;
+				if(temps>=accents.value){
+					in.amp=0;
+					in=(4-temps).yield
+				}
+				{in=in.dur.yield}
+			}
+		}
+		//		\dur, Psync(Pkey(\dur), 4, 4),
+		//.integrate,
+		//\degree (Pdefn(\_pf) <> (tps:8,pat:Pkey(\degree).trace)),
+		//	\octave, 5 -  (Pkey(\degree).div(7)),
+		//	\mtranspose, Pstep(Pseq([0,2], inf), 2),
+	))	
+
 	<>
 	Pdef(\mel)
 	<>
@@ -36,7 +50,7 @@ Pdef(\main, (
 );
 
 Pdef(\dispatch,
-	Pbind(\type, \midi, \midiout, Pfunc{MIDIOut(1)})
+	Pbind(\type, \midi, \midiout, Pfunc{MIDIOut(~midiPort)})
 	<>
 	Ppar([
 		Pbind(
@@ -51,6 +65,8 @@ Pdef(\dispatch,
 		)
 	]),
 );
+
 PdefAllGui(bounds:Rect(0,0,150,150));
 
 )
+
