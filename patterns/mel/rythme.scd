@@ -1,8 +1,8 @@
 (
 Pdef(\rythme,
 	PlazyEnvir
-	{ arg periode=4, set=2, seed="ab".convert.iter.repeat, base=0;
-		[periode, set, seed, base].postln;
+	{arg periode, set, seed, base;
+		[periode, set, base, seed].postln;
 		Pspawn(
 			Pbind(
 				\method, \seq, \delta, 0,
@@ -10,7 +10,7 @@ Pdef(\rythme,
 					Pbind(\dur,
 						PlazyEnvir
 						{ arg set, forme, periode, seed;
-							var a=[]; set=(1..set).reciprocal;
+							var a=[]; set=(1..set.postln).reciprocal;
 							thisThread.randSeed_(seed);
 							while({a.sum<periode}, {
 								a=a.add(set.choose)
@@ -19,15 +19,19 @@ Pdef(\rythme,
 					)}
 			)
 			<>
-		Pbind(
-			\periode, Pkey(\periode),
-			//			\set, Pkey(\set),
-			\seed, Pkey(\seed),
-			\base, Pkey(\base),
-		)
-		)
-	}
+			Pbind(
+				\periode, periode.iter.repeat(seed.size),
+				\set, set.collectAs(_.digit,Array).iter.repeat(seed.size),
+				\seed, seed.convert.iter,
+				\base, base.iter.repeat(seed.size)
+			).trace
+	)}.repeat
 )
 )
 
-Pdef(\rythme).gui
+Pdef(\rythme)
+.envir_(
+	(periode:4, set:"2",
+		seed:"ab", base:0,
+	stretch:1)
+).gui
