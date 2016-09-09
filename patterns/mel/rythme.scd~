@@ -1,0 +1,24 @@
+(
+z=Pspawn(
+	Pbind(
+		\method, \seq, \delta, 0,
+		\pattern, Pfunc{arg in;
+			Pbind(\dur,
+				PlazyEnvir
+				{ arg set, forme, periode, seed;
+					var a=[]; set=(1..set).reciprocal;
+					thisThread.randSeed_(seed);
+					while({a.sum<periode}, {
+						a=a.add(set.choose)
+					});	a.postln.iter
+				} <> in
+			)}
+	)<>
+	Pbind(
+		\periode, 2,
+		\set, [2].iter.repeat,
+		\seed, [0, 2, 3].iter.repeat,
+		\base, 0,
+	))
+)
+z.trace.play
