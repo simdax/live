@@ -1,5 +1,5 @@
 (
-Pdef(\rythmeFeed).copy(\0);
+Pdef(\rythme).copy(\0);
 d=(seed:"ab", base:0, set:[0,1,2,3,4]);
 (
 Pbind(
@@ -17,7 +17,7 @@ Pbind(
 	}
 ).repeat
 <>
-~pat.(\rythme, Pdef(\0).repeat)
+Pdef(\0)
 ).play
 )
 
