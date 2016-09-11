@@ -1,4 +1,4 @@
-(
+ (
 var a=
 Psync(
 	Pfindur(Pkey(\finales).asStream,
@@ -29,8 +29,8 @@ Plazy{arg inEnvir;
 	Pfin(max,Pbind(*inEnvir.asPairs))
 }; 
 
-Window.closeAll;
-"../patternBase.scd".loadRelative;
+// Window.closeAll;
+// "../patternBase.scd".loadRelative;
 Pdef(\rythme,
 	~pat.(a, b)
 ).envir_(

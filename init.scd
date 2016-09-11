@@ -2,23 +2,27 @@
 
 //patterns
 //recursive load
-
+var f;
 f={arg p;
 	p.entries.do { |x|
-		if(x.postln.isFolder){f.value(x)}
-		{x.absolutePath.load}
+		//		x.postln;  // so we can check for errors
+		if(x.isFolder){f.value(x)}
+		{if(x.extension=="scd")
+			{x.absolutePath.load}
+			{"fichier évité => ".post; x.absolutePath.postln}
+		}
 };
 };
-f.value(PathName("./patterns".resolveRelative));
+f.value(PathName("patterns".resolveRelative));
 
 
 //GUI
-"GUI/mel.scd".loadRelative;
-"GUI/son.scd".loadRelative;
+// "GUI/mel.scd".loadRelative;
+// "GUI/son.scd".loadRelative;
 
 //MIDI
-"extProg.scd".loadRelative;
-"midiCtl.scd".loadRelative;
+//"extProg.scd".loadRelative;
+
 
 )
 

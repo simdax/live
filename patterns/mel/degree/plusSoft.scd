@@ -7,7 +7,8 @@ var a= Pbind(
 		loop{
 			if(in.isRest){
 				"rest détecté !".postln;
-				in=nil.yield;			
+				in=\rest.yield;
+				nil.yield
 			}
 			{
 				in=pat.next.yield;
@@ -25,15 +26,15 @@ var b=	Plazy{arg in;
 				// test with flags
 				//				<>Pbind(\isRest, Pstep( [false,true].iter.repeat,[3,1].iter.repeat)).trace
 			}
-		).trace <> ~master <> in
+		) <> ~master <> in
 	)
 };
-Window.closeAll;
-Pdef(\degree, b).envir_(c);
-Pdef(\degree).gui
+// Window.closeAll;
+ Pdef(\degree, b).envir_(c);
+ Pdef(\degree).gui
 )
 
-(Pdef(\degree)<>Pdef(\rythme)).play
+
 
 
 
