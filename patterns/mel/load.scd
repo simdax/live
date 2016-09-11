@@ -1,9 +1,5 @@
 (
-"patternBase.scd,rythme.scd".split($,).do{arg x;
+"rythme/cons2.scd,degree/plusSoft.scd".split($,).do{arg x;
 x.loadRelative};
-
-Window.closeAll; s.boot;
-d.gui(3);
-Pdef(\0).gui
 
 )

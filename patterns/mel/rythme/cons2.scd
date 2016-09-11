@@ -8,14 +8,14 @@ Psync(
 			\dur, p{arg ev;
 				var hit=0; 
 				loop{
-					if((ev.metronome.postln%ev.regularite) > 0){hit=hit+1};
+					if((ev.metronome%ev.regularite) > 0){hit=hit+1};
 					//hit.postln;
 					ev=ev.dur.yield
 				}
 			}
 		)
 	), Pkey(\periodes).asStream
-).trace;
+);
 var b=
 Pbind(\seed, Pkey(\seed)+Pkey(\base))<>
 Plazy{arg inEnvir;	

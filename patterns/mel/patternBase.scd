@@ -5,7 +5,7 @@
 	Pspawner
 	{		arg sp;
 		var a=slave.asStream; var b;
-		while{b=a.next(sp.event); b.notNil}{
+		while{b=a.next(sp.event.postln); b.notNil}{
 			sp.seq(master <> b)
 		}
 	}
