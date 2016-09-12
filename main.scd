@@ -70,6 +70,7 @@ Pdef(\dispatch,
 //"setup.scd".loadRelative;
 Zyn(~midiPort);
 PdefAllGui();
+"GUI/mel.scd".loadRelative
 )
 
 

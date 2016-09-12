@@ -43,7 +43,7 @@ Pdef(\rythme,
 		lag:0,
 		regularite:0.5, accents:[[1,2,3]], contra:1, co:2,	
 	)
-).gui;
+);
 )
 
 

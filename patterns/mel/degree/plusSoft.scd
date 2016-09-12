@@ -31,7 +31,7 @@ var b=	Plazy{arg in;
 };
 // Window.closeAll;
  Pdef(\degree, b).envir_(c);
- Pdef(\degree).gui
+
 )
 
 

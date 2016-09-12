@@ -1,5 +1,7 @@
 /* =====================================================================
 
+PATTERN GENERIQUE POUR FORME ALEATOIRE
+
 FORME : nb d'entrees, enchainement
 TEMPS : 
 SET : entrees, poids
