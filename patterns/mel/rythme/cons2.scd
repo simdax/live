@@ -1,4 +1,4 @@
- (
+(
 var a=
 Psync(
 	Pfindur(Pkey(\finales).asStream,
@@ -17,17 +17,7 @@ Psync(
 	), Pkey(\periodes).asStream
 );
 var b=
-Pbind(\seed, Pkey(\seed)+Pkey(\base))<>
-Plazy{arg inEnvir;	
-	var max;
-	inEnvir.keysValuesChange{arg k,x;
-		if(x.isString){x=x.collectAs(_.digit,Array)};
-		x.asArray
-	};
-	max=inEnvir.collect(_.size).maxItem;
-	inEnvir.keysValuesChange{arg k,v; v.iter.repeat};
-	Pfin(max,Pbind(*inEnvir.asPairs))
-}; 
+Pbind(\seed, Pkey(\seed)+Pkey(\base))<>~master;
 
 // Window.closeAll;
 // "../patternBase.scd".loadRelative;
@@ -36,9 +26,9 @@ Pdef(\rythme,
 ).envir_(
 	(
 		set:"4",
-		finales:"3432", periodes:4,
+		finales:"3432", periodes:"4",
 		seed:"aaba", base:0,
-		stretch:1,
+		//		stretch:1,
 		//triple:false, quinte:false, sept:false,
 		lag:0,
 		regularite:0.5, accents:[[1,2,3]], contra:1, co:2,	

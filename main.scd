@@ -70,7 +70,16 @@ Pdef(\dispatch,
 //"setup.scd".loadRelative;
 Zyn(~midiPort);
 PdefAllGui();
-"GUI/mel.scd".loadRelative
-)
 
+a="GUI/mel.scd".loadRelative[0];
+"timeline.scd".loadRelative;
+a.bounds_(a.parent.bounds+(50@50));
+a.parent.bounds_(a.bounds);
+t=~timeline;
+t.ini(a);
+a.parent.asView.keyDownAction_{ arg s, c;
+	c.switch($p, {t.toggle})
+}
+
+)
 

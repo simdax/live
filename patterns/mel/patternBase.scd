@@ -18,7 +18,7 @@
 	};
 	max=inEnvir.collect(_.size).maxItem;
 	inEnvir.keysValuesChange{arg k,v; v.iter.repeat};
-	Pfin(max,Pbind(*inEnvir.asPairs)).trace
+	Pfin(max,Pbind(*inEnvir.asPairs))
 };
 // specs
 
