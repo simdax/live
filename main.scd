@@ -4,7 +4,7 @@
 
 (
 
-~midiPort=0;
+~midiPort=Platform.case(\linux, 0, \windows, 1);
 Window.closeAll;
 Pdef.removeAll;
 
@@ -38,7 +38,7 @@ Pdef(\main, (
 		//\degree (Pdefn(\_pf) <> (tps:8,pat:Pkey(\degree).trace)),
 		//	\octave, 5 -  (Pkey(\degree).div(7)),
 		//	\mtranspose, Pstep(Pseq([0,2], inf), 2),
-	))	
+	))
 	<>
 	Pdef(\mel)
 	<>
@@ -69,7 +69,7 @@ Pdef(\dispatch,
 
 //"setup.scd".loadRelative;
 Zyn(~midiPort);
-PdefAllGui();
+PdefAllGui(bounds:Rect(100, 100, 200, 400);
 
 a="GUI/mel.scd".loadRelative[0];
 "timeline.scd".loadRelative;
