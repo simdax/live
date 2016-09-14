@@ -27,7 +27,7 @@ Pdefn(\appo,p{arg ev;
 					// 2. position métrique			
 					(ev.dur>=1)
 					or:
-					([0,2].includes(ev.beat%4)) // sur les accents
+					([0,2].includes(try{ev.beat%4}{"pas de beat !".warn; 0})) // sur les accents
 					or:
 					(nb>1)
 				)

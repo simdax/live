@@ -2,11 +2,11 @@
 var a= Pbind(
 	\degree, p{ arg in;
 		var pat;
-		var next={pat=Pseed(~seed.postln, ~notes).asStream};
+		var next={pat=Pseed(~seed, ~notes).asStream};
 		next.value;
 		loop{
 			if(in.isRest){
-				"rest détecté !".postln;
+				//"rest détecté !".postln;
 				in=\rest.yield;
 				nil.yield
 			}

@@ -1,6 +1,6 @@
 (
 
-Pdef(\repe, Pbind(
+Pdef(\repeMel, Pbind(
 	\degree, p{ arg ev;
 		// nb de répétitions possibles
 		var nb=0; var noteP;

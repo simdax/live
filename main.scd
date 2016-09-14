@@ -69,7 +69,7 @@ Pdef(\dispatch,
 
 //"setup.scd".loadRelative;
 Zyn(~midiPort);
-PdefAllGui(bounds:Rect(100, 100, 200, 400);
+PdefAllGui(bounds:Rect(100, 100, 200, 400));
 
 a="GUI/mel.scd".loadRelative[0];
 "timeline.scd".loadRelative;

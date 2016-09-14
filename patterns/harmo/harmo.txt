@@ -1,3 +1,0 @@
-toute mélodie est d'abord vue par rapport à ses premiers accords
-
-~mel=Pbind(\degree, Pwhite(0,6), \dur, Prand([]))
