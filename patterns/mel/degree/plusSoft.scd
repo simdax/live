@@ -15,7 +15,7 @@ var a= Pbind(
 			}
 		}
 	},
-).midi(0);
+);//.midi(0);
 var c=(seed:"ab", notes:Pwhite(0,5));
 var b=	Plazy{arg in;
 	Pspawn(
